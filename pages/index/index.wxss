@@ -1,0 +1,64 @@
+@import "../../common/commonCss.wxss";
+.top-bg-con {
+  height: 265rpx;
+  background-color: #64EDC1;
+}
+
+.head-con {
+  width: 200rpx;
+  margin: -100rpx auto auto;
+}
+
+.head-image {
+  position: relative;
+  height: 170rpx;
+  width: 170rpx;
+  border-radius: 50%;
+  margin: auto;
+  background-color: white;
+}
+
+.head-image view {
+  position: absolute;
+  height: 150rpx;
+  width: 150rpx;
+  top: 10rpx;
+  left: 10rpx;
+  border-radius: 50%;
+  background-color: aqua;
+}
+
+.user-name {
+  height: 50rpx;
+  background-color: azure;
+  margin-top: 15rpx;
+}
+
+.function-btn-con {
+  height: 200px;
+  width: 90%;
+  margin: 30rpx auto auto;
+}
+
+.function-card {
+  height: 350rpx;
+  width: 40%;
+  border-radius: 5px;
+  background-color: #FF5939;
+  float: left;
+  margin: 0 5% 30rpx 5%;
+}
+
+.function-card image {
+  display: block;
+  height: 100rpx;
+  width: 100rpx;
+  margin: auto;
+  padding-top: 70rpx;
+}
+
+.function-card view {
+  text-align: center;
+  color: white;
+  margin-top: 20rpx;
+}

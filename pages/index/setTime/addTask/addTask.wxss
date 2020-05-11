@@ -1,0 +1,89 @@
+.add-task-title {
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 36rpx;
+    padding-left: 33rpx;
+    background-color: #FAFAFA;
+}
+
+.time-task-title {
+    height: 37rpx;
+    width: 75%;
+    line-height: 37rpx;
+    font-size: 35rpx;
+    font-weight: bold;
+    border-left: 4px solid black;
+    padding-left: 5%;
+    margin: 50rpx auto auto;
+}
+
+.set-task {
+    position: relative;
+    height: 32px;
+    width: 70%;
+    margin: 40rpx auto auto;
+    border-bottom: 1px solid black;
+    font-size: 33rpx;
+}
+
+.set-task picker {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.set-task view {
+    height: 100%;
+    display: inline-block;
+}
+
+.set-task text {
+    float: right;
+    height: 100%;
+}
+
+.confirm-btn {
+    height: 80rpx;
+    width: 80%;
+    margin: 80rpx auto auto;
+    background-color: #1478F6;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 4px;
+    color: white;
+}
+
+.delete {
+    background-color: red !important;
+    margin: 40rpx auto auto !important;
+}
+
+.power-container {
+    float: right;
+    width: 80rpx;
+    height: 40rpx !important;
+    background-color:#1478F6;
+    border-radius:32rpx;
+}
+.power-container>view {
+    cursor: pointer;
+    width:20px;
+    height:20px;
+    background:rgba(255,255,255,1);
+    border-radius: 50%;
+    transition: transform .5s ease;
+}
+.power-active {
+    transform: translateX(46rpx);
+}
+.power-normal {
+    transform: translateX(0rpx);
+}
+
+.power-bg-active {
+    background-color: #1478F6;
+}
+.power-bg-normal {
+    background-color: #d4d4d4;
+}

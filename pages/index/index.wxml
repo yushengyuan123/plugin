@@ -1,0 +1,39 @@
+<!--pages/index/index.wxml-->
+<view>
+    <view class="top-bg-con"></view>
+    <view class="bottom-con">
+        <view class="head-con">
+            <view class="head-image">
+                <view></view>
+            </view>
+            <view class="user-name">你好！余圣源</view>
+        </view>
+        <view class="function-btn-con">
+            <view class="function-card"
+                  bindtap="router"
+                  data-id="electricalApplicant"
+            >
+                <image src="../../images/dianqi.png"></image>
+                <view class="function-name">我的用电器</view>
+            </view>
+
+            <view class="function-card"
+                  style="background: linear-gradient(#975AFF, #A757F1, #CA61FF);"
+                  bindtap="router"
+                  data-id="setTime"
+            >
+                <image src="../../images/shijian.png"></image>
+                <view class="function-name">定时设置</view>
+            </view>
+
+            <view class="function-card"
+                  style="background: linear-gradient(#1972FF, #4283FF, #467CFF);"
+                  bindtap="router"
+                  data-id="operator"
+            >
+                <image src="../../images/rizhi.png"></image>
+                <view class="function-name">操作日志</view>
+            </view>
+        </view>
+    </view>
+</view>

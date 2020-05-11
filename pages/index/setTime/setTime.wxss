@@ -1,0 +1,80 @@
+/* pages/index/setTime/setTime.wxss */
+.time-task-con {
+    position: relative;
+    height: 170rpx;
+    border-bottom: 1px solid rgba(241,241,241,1);
+    border-top: 1px solid rgba(241,241,241,1);
+}
+
+.time-clock-con {
+    position: relative;
+    height: 100rpx;
+    width: 90%;
+    font-size: 70rpx;
+    font-family:PingFangSC-Light,PingFang SC;
+    margin: 10rpx auto auto;
+    line-height: 100rpx;
+    font-weight:300;
+    color:rgba(144,144,144,1);
+}
+
+.time-clock-con span {
+    font-size: 29rpx;
+}
+
+.port-info-con {
+    height: 50rpx;
+    font-family:PingFangSC-Light,PingFang SC;
+    font-weight:300;
+    color:rgba(144,144,144,1);
+    margin: auto;
+    font-size: 29rpx;
+    width: 90%;
+}
+
+.power-container {
+    position: absolute;
+    right: 20rpx;
+    top:30rpx;
+    width: 80rpx;
+    height: 40rpx;
+    background-color:#1478F6;
+    border-radius:28px;
+    border:1px solid rgba(219,219,219,1);
+    margin: 36rpx 32rpx 0;
+}
+
+.power-container>view {
+    cursor: pointer;
+    width:20px;
+    height:20px;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 2px 6px -2px rgba(0,0,0,0.5);
+    border-radius: 50%;
+    transition: transform .5s ease;
+}
+
+.power-bg-active {
+    background-color: #1478F6;
+}
+.power-bg-normal {
+    background-color: white;
+}
+
+.power-active {
+    transform: translateX(46rpx);
+}
+.power-normal {
+    transform: translateX(0rpx);
+}
+
+.add-time-task {
+    position: fixed;
+    height: 100rpx;
+    width: 100%;
+    line-height: 100rpx;
+    bottom: 0;
+    text-align: center;
+    background-color: #1478F6;
+    color: white;
+}

@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/electricalApplicant/electricalApplicant",
+    "pages/login/login",
+    "pages/index/setTime/setTime",
+    "pages/index/setTime/addTask/addTask",
+    "pages/index/index",
+    "pages/index/operator/operator",
+    "pages/changeInfo/changeInfo",
+    "pages/log/log",
+    "pages/option/option",
+    "pages/timeTask/timeTask"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#787878",
+    "selectedColor": "#2A2A2A",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "知识PK",
+        "iconPath": "images/icons/port_manage.png",
+        "selectedIconPath": "images/icons/port_manage.png"
+      },
+      {
+        "pagePath": "pages/log/log",
+        "text": "小贴士",
+        "iconPath": "images/icons/log.png",
+        "selectedIconPath": "images/icons/log.png"
+      },
+      {
+        "pagePath": "pages/timeTask/timeTask",
+        "text": "排查控制",
+        "iconPath": "images/icons/icon_task_2.png",
+        "selectedIconPath": "images/icons/icon_task_1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

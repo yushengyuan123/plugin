@@ -1,0 +1,4 @@
+.imageStyle {
+    display: block;
+    width: 100%;
+}

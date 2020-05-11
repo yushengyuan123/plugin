@@ -1,0 +1,20 @@
+<!--pages/index/operator/operator.wxml-->
+<view class="operator-con" xmlns:wx="">
+    <view class="record-con" bindtap="showRecord">
+        <view class="operator-port">
+            <image src="../../../images/duankou.png" class="duankou"></image>
+            <text>端口1</text>
+            <image src="{{!isShow? '../../../images/xia.png' : '../../../images/shangla.png'}}" class="xia"></image>
+        </view>
+        <view class="task-record-con {{isShow? 'show' : 'none'}}" wx:for="{{logList}}">
+            <view class="task-record">
+                <image src="../../../images/shijian@2x.png" class="shijian"></image>
+                <text>{{item.deviceTime}}</text>
+                <view>
+                    <image src="../../../images/yonghu.png" class="yonghu"></image>
+                    {{item.deviceReason}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

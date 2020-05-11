@@ -1,0 +1,32 @@
+<view>
+    <view class="add-task-title">
+        定时开关
+    </view>
+    <view class="time-task-con">
+        <view class="time-task-title">
+            定时任务
+        </view>
+        <view class="set-task">
+            <view>时间</view>
+            <text>{{display.time}}</text>
+            <picker  mode="time" value="{{display.time}}" start="00:00" end="23:59" bindchange="changeTime">
+                <view></view>
+            </picker>
+        </view>
+        <view class="set-task">
+            <view>端口</view>
+            <text>{{display.port}}</text>
+            <picker mode="selector" range="{{portSelect}}" value="{{display.port}}" bindchange="changePort">
+                <view></view>
+            </picker>
+        </view>
+        <view class="set-task">
+            <view>排查端口</view>
+            <view class="power-container {{power.active? 'power-bg-active' : 'power-bg-normal'}}" bindtap='switchPower'>
+                <view class="{{power.active? 'power-active' : 'power-normal'}}"></view>
+            </view>
+        </view>
+        <view class="confirm-btn" bindtap="confirmAdd">增加定时</view>
+        <view class="confirm-btn delete" bindtap="confirmDelete" wx:if="{{isAdd}}">删除任务</view>
+    </view>
+</view>

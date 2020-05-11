@@ -1,0 +1,74 @@
+/* pages/index/operator/operator.wxss */
+.operator-con {
+    height: 100vh;
+    background-color: #FAFAFA;
+}
+
+.operator-port {
+    position: relative;
+    height: 100rpx;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid rgba(241,241,241,1);
+    border-top: 1px solid rgba(241,241,241,1);
+    margin-top: 5rpx;
+    display: flex;
+    align-items: center;
+}
+
+.show {
+    display: block;
+}
+
+.none {
+    display: none;
+}
+
+.operator-port .duankou {
+    display: inline-block;
+    height: 40rpx;
+    width: 55rpx;
+    padding: 0 30rpx 0 30rpx;
+}
+
+.xia {
+    display: block;
+    position: absolute;
+    right: 50rpx;
+    height: 20rpx;
+    width: 30rpx;
+}
+
+.task-record-con {
+    height: 90rpx;
+    width: 100%;
+    line-height: 9rpx;
+    background-color: white;
+}
+
+.task-record {
+    position: relative;
+    height: 100%;
+    width: 90%;
+    margin: auto;
+    border-bottom: 1px solid rgba(241,241,241,1);
+    border-top: 1px solid rgba(241,241,241,1);
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.task-record view {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.shijian, .yonghu{
+    display: block;
+    height: 40rpx;
+    width: 40rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}

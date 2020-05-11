@@ -1,0 +1,27 @@
+<!--pages/index/setTime/setTime.wxml-->
+<view>
+    <view
+            class="time-task-con"
+            wx:for="{{taskList}}"
+            bindtap="changeInfo"
+            data-status="{{item.key}}"
+            data-id="{{item.id}}"
+            data-port="{{item.index}}"
+            data-time="{{item.time}}"
+    >
+        <view class="time-clock-con">{{item.time}}<span>上午</span></view>
+        <view class="port-info-con">端口{{item.index}} {{item.key==1?'开启':'关闭'}}</view>
+        <view
+                class="power-container {{item.key? 'power-bg-active' : 'power-bg-normal'}}"
+                catchtap='operatorConfirm'
+                data-id="{{item.id}}"
+        >
+            <view class="{{item.key? 'power-active' : 'power-normal'}}"></view>
+        </view>
+    </view>
+    <view class="add-time-task"
+          bindtap="router"
+    >
+        添加定时任务
+    </view>
+</view>
