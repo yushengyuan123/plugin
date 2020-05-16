@@ -1,0 +1,17 @@
+<!--pages/index/electricalApplicant/feedback/feedback.wxml-->
+<view>
+    <view class="time-task-con">
+        <view class="time-task-title">
+            错误反馈
+        </view>
+        <view class="set-task">
+            <input
+                    value="{{display.name}}"
+                    data-modal="{{display.name}}"
+                    bindinput='handleInputChange'
+            >
+            </input>
+        </view>
+        <view class="confirm-btn" bindtap="confirm">提交</view>
+    </view>
+</view>

@@ -1,0 +1,27 @@
+<!--pages/battle/question/question.wxml-->
+<!--pages/battle/battle.wxml-->
+<view class="outer-con">
+    <view class="top-bg-con"></view>
+    <view class="bottom-con">
+        <view class="head-con">
+            <view class="head-image">
+                <view type="userAvatarUrl" class="icon"></view>
+            </view>
+            <view class="next-qus">
+                <view class="inner-circle" src="../../../images/next.png"></view>
+            </view>
+            <view class="user-name-con">
+                第一题
+            </view>
+        </view>
+        <view class="function-btn-con">
+            <view class="timu">我会唱跳rap，请问你会什么?</view>
+            <view class="topic" wx:for="{{questionList}}">
+                {{item.content}}
+            </view>
+            <view class="answer">正确答案: 打篮球</view>
+            <view class="answer" style="margin-top: 0">解释：因为唱跳rap，打篮球。解释解释解释。</view>
+        </view>
+    </view>
+</view>
+

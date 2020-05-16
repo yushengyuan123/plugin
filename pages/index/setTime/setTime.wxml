@@ -1,5 +1,5 @@
 <!--pages/index/setTime/setTime.wxml-->
-<view>
+<view style="padding-bottom: 100rpx">
     <view
             class="time-task-con"
             wx:for="{{taskList}}"
@@ -12,11 +12,11 @@
         <view class="time-clock-con">{{item.time}}<span>上午</span></view>
         <view class="port-info-con">端口{{item.index}} {{item.key==1?'开启':'关闭'}}</view>
         <view
-                class="power-container {{item.key? 'power-bg-active' : 'power-bg-normal'}}"
+                class="power-container {{item.status? 'power-bg-active' : 'power-bg-normal'}}"
                 catchtap='operatorConfirm'
                 data-id="{{item.id}}"
         >
-            <view class="{{item.key? 'power-active' : 'power-normal'}}"></view>
+            <view class="{{item.status? 'power-active' : 'power-normal'}}"></view>
         </view>
     </view>
     <view class="add-time-task"

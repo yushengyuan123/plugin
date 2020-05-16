@@ -283,6 +283,7 @@ Page({
           //   data: res.header['Set-Cookie'],
           // });
           app.sessionID = res.header['x-auth-token'];
+          app.isVisitor = false
 
           wx.setStorage({
             key: 'account',
@@ -294,7 +295,13 @@ Page({
           })
 
           wx.switchTab({
-            url: '../index/index'
+            url: '../index/index',
+            success: res => {
+              console.log(app.isVisitor)
+              let page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            }
           })
           break;
         }

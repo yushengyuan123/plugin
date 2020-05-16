@@ -5,7 +5,7 @@
 }
 
 .head-con {
-  width: 200rpx;
+  width: 100%;
   margin: -100rpx auto auto;
 }
 
@@ -16,22 +16,31 @@
   border-radius: 50%;
   margin: auto;
   background-color: white;
+  overflow: hidden;
 }
 
-.head-image view {
+.head-image image {
   position: absolute;
   height: 150rpx;
   width: 150rpx;
   top: 10rpx;
   left: 10rpx;
   border-radius: 50%;
-  background-color: aqua;
+}
+
+.user-name-con {
+  position: relative;
+  width: 100%;
 }
 
 .user-name {
+  display: block;
   height: 50rpx;
-  background-color: azure;
-  margin-top: 15rpx;
+  width: 100%;
+  left: 15%;
+  text-align: center;
+  font-size: 46rpx;
+  margin-top: 10rpx;
 }
 
 .function-btn-con {
@@ -41,24 +50,59 @@
 }
 
 .function-card {
-  height: 350rpx;
-  width: 40%;
+  height: 150rpx;
+  width: 45%;
   border-radius: 5px;
   background-color: #FF5939;
   float: left;
-  margin: 0 5% 30rpx 5%;
+  text-align: center;
 }
 
-.function-card image {
+.user-name-con text{
   display: block;
-  height: 100rpx;
-  width: 100rpx;
-  margin: auto;
-  padding-top: 70rpx;
+  width: 100%;
+  text-align: center;
+  margin-top: 26rpx;
+  color: gainsboro;
+}
+
+
+.function-card image {
+  display: inline-block;
+  height: 50rpx;
+  width: 50rpx;
+  margin: 50rpx 20rpx 50rpx 0;
 }
 
 .function-card view {
-  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  line-height: 150rpx;
+  font-size: 30rpx;
   color: white;
-  margin-top: 20rpx;
+}
+
+.function-card-electron {
+  height: 190rpx;
+  width: 100%;
+  text-align: center;
+  background-color: #FF5939;
+  color: white;
+  border-radius: 5px;
+  font-size: 0;
+}
+.function-card-electron image {
+  display: inline-block;
+  height: 50rpx;
+  width: 50rpx;
+  margin: 75rpx 20rpx 75rpx 0;
+}
+
+.function-card-electron view {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  line-height: 190rpx;
+  font-size: 40rpx;
 }

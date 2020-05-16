@@ -1,0 +1,26 @@
+<!--pages/battle/battle.wxml-->
+<view>
+    <view class="top-bg-con"></view>
+    <view class="bottom-con">
+        <view class="head-con">
+            <view class="head-image">
+                <image src="../../images/hi.png" class="icon"></image>
+            </view>
+            <view class="user-name-con">
+                今天你答题了吗
+            </view>
+        </view>
+        <view class="function-btn-con">
+            <view
+                    data-id="{{item.module}}"
+                    class="item-card"
+                    wx:for="{{itemList}}"
+                    bindtap="jump"
+            >
+                <image src="{{item.image}}"></image>
+                <view>{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+

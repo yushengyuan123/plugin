@@ -6,7 +6,8 @@ export function formatData(data) {
             key: data[i].key,
             index: data[i].index,
             time: data[i].time.split(' ')[1].split(':', 2).join(':'),
-            id: data[i].id
+            id: data[i].id,
+            status: data[i].status
         })
     }
     return replica

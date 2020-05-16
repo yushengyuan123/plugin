@@ -53,6 +53,30 @@ class Request {
       fail: fail,
     });
   }
+
+  sendUndata(success, fail) {
+    const that = this;
+    let header;
+    // if (app.sessionID.length == 0 && this.login == false) {
+    //   wx.navigateTo({
+    //     url: '../login/login',
+    //   })
+    // }
+    // console.log(app.sessionID);
+    console.log(app.sessionID);
+    if (app.sessionID.length != 0) {
+      header = { 'x-auth-token': app.sessionID };
+    } else {
+
+    }
+    wx.request({
+      url: that.baseUrl + that.url,
+      header: header,
+      method: that.method,
+      success: success,
+      fail: fail,
+    });
+  }
 }
 
 class PostRequest extends Request {

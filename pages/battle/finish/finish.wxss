@@ -1,0 +1,76 @@
+/* pages/battle/finish/finish.wxss */
+.bg-con {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.main-con {
+    height: 90vh;
+    width: 90%;
+    background-color: white;
+    margin: 5vh auto auto;
+    border-radius: 8px;
+}
+
+.title {
+    width: 90%;
+    font-size: 66rpx;
+    text-align: center;
+    color: #FF5939;
+    margin: auto;
+    padding-top: 10%;
+}
+
+.answer-correct {
+    font-size: 51rpx;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.correct-num {
+    width: 100%;
+    text-align: center;
+    font-size: 164rpx;
+    margin-top: 40rpx;
+    margin-bottom: 40rpx;
+}
+
+.line {
+    height: 20rpx;
+    width: 90%;
+    margin: auto;
+    background-color: #EEEEEE;
+}
+
+.submit-btn {
+    text-align: center;
+    height: 100rpx;
+    width: 90%;
+    margin: 150rpx auto auto;
+    background-color: #8C63FF;
+    color: white;
+    border-radius: 6px;
+    line-height: 100rpx;
+    font-size: 0;
+
+}
+
+.submit-btn image {
+    display: inline-block;
+    vertical-align: top;
+    height: 40rpx;
+    width: 40rpx;
+    margin-top: 30rpx;
+}
+
+.submit-btn text {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    line-height: 100rpx;
+    font-size: 30rpx;
+}

@@ -93,7 +93,6 @@ Page({
   },
   pageInit() {
     const that = this;
-    console.log("123")
     if (app.currentPort == null) {
       return ;
     }

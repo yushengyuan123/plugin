@@ -1,0 +1,72 @@
+/* pages/battle/battle.wxss */
+@import "../../common/commonCss.wxss";
+.top-bg-con {
+    height: 265rpx;
+    background:linear-gradient(180deg,rgba(115,78,233,1) 0%,rgba(121,97,219,1) 68%,rgba(121,95,242,1) 100%);
+}
+
+.head-con {
+    width: 100%;
+    margin: -70rpx auto auto;
+}
+
+.head-image {
+    position: relative;
+    height: 170rpx;
+    width: 227rpx;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.head-image .icon {
+    position: absolute;
+    height: 133rpx;
+    width: 227rpx;
+    top: 5rpx;
+    left: 10rpx;
+}
+
+.user-name-con {
+    position: relative;
+    height: 50rpx;
+    width: 100%;
+    margin-top: 25rpx;
+    margin-bottom: 44rpx;
+    font-size: 45rpx;
+    text-align: center;
+    color: #975AFF;
+}
+
+.function-btn-con {
+    height: 200px;
+    width: 90%;
+    margin: 30rpx auto auto;
+}
+
+.item-card {
+    height: 100rpx;
+    width: 80%;
+    box-shadow:0px 4px 13px -5px rgba(0,0,0,0.5);
+    border-radius:6px;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 0;
+    margin: 70rpx auto auto;
+}
+
+.item-card view {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    font-size: 30rpx;
+    letter-spacing: 10rpx;
+}
+
+.item-card image {
+    display: inline-block;
+    height: 50rpx;
+    width: 50rpx;
+    margin-top: 25rpx;
+    margin-right: 20rpx;
+
+}

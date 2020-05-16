@@ -40,8 +40,9 @@ App({
     url: 'http://39.98.41.126:11111',
     wss: 'ws://39.98.41.126:11111'
   },
-  sessionID: '65552302-028d-436e-b6a4-d83d91612f3f',
+  sessionID: '32d15ba1-406d-4b1e-9e07-498ef420434f',
   portArr: [],
   currentPort: null,
-  socket: null
+  socket: null,
+  isVisitor: true
 })

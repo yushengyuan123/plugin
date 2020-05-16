@@ -104,7 +104,7 @@ Page({
         const vm = this
         wx.showModal({
             title: '操作提示',
-            content: '你确定要添加吗',
+            content: !vm.data.isAdd?'你确定要添加吗':'确定要修改吗',
             success (res) {
                 if (res.confirm) {
                     vm.changeSubmit()
@@ -139,7 +139,8 @@ Page({
             } else {
                 wx.showToast({
                     title: '添加失败,错误原因未知',
-                    duration: 2000
+                    duration: 2000,
+                    icon: "none"
                 })
             }
         })

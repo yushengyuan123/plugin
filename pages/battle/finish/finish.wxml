@@ -1,0 +1,14 @@
+<!--pages/battle/finish/finish.wxml-->
+<view>
+    <image class="bg-con" src="../../../images/finish.png"></image>
+    <view class="main-con">
+        <view class="title">恭喜你完成本次答题</view>
+        <view class="answer-correct">本次答题正确率为:</view>
+        <view class="correct-num">9/10</view>
+        <view class="line"></view>
+        <view class="submit-btn">
+            <image src="../../../images/pen.png"></image>
+            <text>再答一次</text>
+        </view>
+    </view>
+</view>

@@ -3,13 +3,12 @@
         <view class='section-right'>
             <view class="info-container">
                 <view class='info-top'>
-                    <text>端口{{ currentPort }} {{ currentName }}</text>
+                    <text>端口{{ currentPort }}          {{ currentName }}</text>
                     <view class="power-container {{power.active? 'power-bg-active' : 'power-bg-normal'}}" bindtap='switchPower'>
                         <view class="{{power.active? 'power-active' : 'power-normal'}}"></view>
                     </view>
                 </view>
                 <view class='info-bottom'>
-<!--                    <text class='port-name'>{{ currentName }}</text>-->
                     <text class='set-up' bindtap='toPortOption'>设置参数</text>
                     <text class='set-up' bindtap='toFeedback' style="color: red">错误反馈</text>
                 </view>
@@ -28,28 +27,30 @@
                 </view>
             </view>
         </view>
-        <view class='section-left {{ section.left? "section-active" : "section-normal" }}'>
-            <view class='ports'>
-                <view wx:for="{{ ports }}" class="port-container" data-index='{{ item.index }}' bindtap='switchPort'>
-                    <view class='port-left {{ item.active? "port-active" : "port-normal" }}'></view>
-                    <view class="port-right">
-                        <text class="port-index">端口{{ item.index }}</text>
-                        <text class="port-status">状态：{{item.status}}</text>
-                    </view>
-                </view>
-            </view>
-            <view class="add-container" bindtap='openAddPort'>
-                <image class="add-port" src='../../../images/icons/add_port.png'></image>
-                <text>增加端口</text>
-            </view>
-            <view class='panel-arrow' bindtap='switchPanel'>
-                <view>{{ section.direction }}</view>
-            </view>
-        </view>
-        <view class='account-set' bindtap='toUserOption'>
-            <image src='../../../images/icons/account.png'></image>
-            <text>账号设置</text>
-        </view>
+        <cover-view class='section-left {{ section.left? "section-active" : "section-outer-normal" }}'>
+            <cover-view class="inner-container {{ section.left? 'section-active' : 'section-normal' }}">
+                <cover-view class='ports'>
+                    <cover-view wx:for="{{ ports }}" class="port-container" data-index='{{ item.index }}' bindtap='switchPort'>
+                        <cover-view class='port-left {{ item.active? "port-active" : "port-normal" }}'></cover-view>
+                        <cover-view class="port-right">
+                            <cover-view class="port-index">端口{{ item.index }}</cover-view>
+                            <cover-view class="port-status">状态：{{item.status}}</cover-view>
+                        </cover-view>
+                    </cover-view>
+                </cover-view>
+                <cover-view class="add-container" bindtap='openAddPort'>
+                    <cover-image class="add-port" src='../../../images/icons/add_port.png'></cover-image>
+                    <cover-view style="text-align: center;font-size: 25rpx">增加端口</cover-view>
+                </cover-view>
+            </cover-view>
+            <cover-view class='panel-arrow' bindtap='switchPanel'>
+                <cover-view>{{ section.direction }}</cover-view>
+            </cover-view>
+        </cover-view>
+<!--        <view class='account-set' bindtap='toUserOption'>-->
+<!--            <image src='../../../images/icons/account.png'></image>-->
+<!--            <text>账号设置</text>-->
+<!--        </view>-->
     </view>
 </view>
 

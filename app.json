@@ -1,15 +1,19 @@
 {
   "pages": [
-    "pages/index/electricalApplicant/electricalApplicant",
-    "pages/login/login",
-    "pages/index/setTime/setTime",
-    "pages/index/setTime/addTask/addTask",
     "pages/index/index",
+    "pages/index/setTime/setTime",
+    "pages/index/electricalApplicant/electricalApplicant",
     "pages/index/operator/operator",
+    "pages/login/login",
+    "pages/tips/tips",
+    "pages/battle/finish/finish",
+    "pages/battle/battle",
+    "pages/battle/question/question",
+    "pages/index/electricalApplicant/setParam/setParam",
+    "pages/index/electricalApplicant/feedback/feedback",
+    "pages/index/setTime/addTask/addTask",
     "pages/changeInfo/changeInfo",
-    "pages/log/log",
-    "pages/option/option",
-    "pages/timeTask/timeTask"
+    "pages/option/option"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,21 +27,21 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "知识PK",
-        "iconPath": "images/icons/port_manage.png",
-        "selectedIconPath": "images/icons/port_manage.png"
-      },
-      {
-        "pagePath": "pages/log/log",
-        "text": "小贴士",
-        "iconPath": "images/icons/log.png",
-        "selectedIconPath": "images/icons/log.png"
-      },
-      {
-        "pagePath": "pages/timeTask/timeTask",
         "text": "排查控制",
-        "iconPath": "images/icons/icon_task_2.png",
-        "selectedIconPath": "images/icons/icon_task_1.png"
+        "iconPath": "images/paichakongzhi.png",
+        "selectedIconPath": "images/paichai_active.png"
+      },
+      {
+        "pagePath": "pages/battle/battle",
+        "text": "知识PK",
+        "iconPath": "images/pk_disactive.png",
+        "selectedIconPath": "images/pk_active.png"
+      },
+      {
+        "pagePath": "pages/tips/tips",
+        "text": "小贴士",
+        "iconPath": "images/xiaotieshi.png",
+        "selectedIconPath": "images/xiaotieshi_active.png"
       }
     ]
   },

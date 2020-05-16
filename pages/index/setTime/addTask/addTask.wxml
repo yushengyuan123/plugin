@@ -21,12 +21,12 @@
             </picker>
         </view>
         <view class="set-task">
-            <view>排查端口</view>
+            <view>排插端口关闭/开启</view>
             <view class="power-container {{power.active? 'power-bg-active' : 'power-bg-normal'}}" bindtap='switchPower'>
                 <view class="{{power.active? 'power-active' : 'power-normal'}}"></view>
             </view>
         </view>
-        <view class="confirm-btn" bindtap="confirmAdd">增加定时</view>
+        <view class="confirm-btn" bindtap="confirmAdd">{{!isAdd?'增加定时':'修改保存'}}</view>
         <view class="confirm-btn delete" bindtap="confirmDelete" wx:if="{{isAdd}}">删除任务</view>
     </view>
 </view>

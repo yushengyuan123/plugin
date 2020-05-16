@@ -3,22 +3,29 @@
     <view class="top-bg-con"></view>
     <view class="bottom-con">
         <view class="head-con">
-            <view class="head-image">
-                <view></view>
+            <view class="head-image" bindtap="login">
+                <image class="icon" wx:if="{{isVisitor}}" src="../../images/tourist.png"
+                       bindtap="login"
+                ></image>
+                <open-data type="userAvatarUrl" class="icon" wx:else></open-data>
             </view>
-            <view class="user-name">你好！余圣源</view>
+            <view class="user-name-con">
+                <view class="user-name" wx:if="{{isVisitor}}">游客</view>
+                <open-data type="userNickName" class="user-name" wx:else></open-data>
+                <text>{{isVisitor?'点击头像登陆':'点击头像退出登陆'}}</text>
+            </view>
         </view>
         <view class="function-btn-con">
-            <view class="function-card"
+            <view class="function-card-electron"
                   bindtap="router"
                   data-id="electricalApplicant"
             >
                 <image src="../../images/dianqi.png"></image>
-                <view class="function-name">我的用电器</view>
+                <view class="function-name-electron">我的用电器</view>
             </view>
 
             <view class="function-card"
-                  style="background: linear-gradient(#975AFF, #A757F1, #CA61FF);"
+                  style="background: linear-gradient(#975AFF, #A757F1, #CA61FF);margin: 30rpx 5% 0 0;"
                   bindtap="router"
                   data-id="setTime"
             >
@@ -27,7 +34,7 @@
             </view>
 
             <view class="function-card"
-                  style="background: linear-gradient(#1972FF, #4283FF, #467CFF);"
+                  style="background: linear-gradient(#1972FF, #4283FF, #467CFF);margin: 30rpx 0 0 5%;"
                   bindtap="router"
                   data-id="operator"
             >
