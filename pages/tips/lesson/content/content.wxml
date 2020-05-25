@@ -1,0 +1,14 @@
+
+<view>
+    <view class="top-bg-con"></view>
+    <view class="bottom-con">
+        <view class="electron-class">
+            <view class="item-con" wx:for="{{content}}" wx:key="index">
+                <view class="index-con">NO.{{index+1}}</view>
+                <view class="content-con">{{item.content}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+

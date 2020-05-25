@@ -275,7 +275,7 @@ Page({
       checkCodeKey: data.idenCode
     }
     postReq = new infoUtil.PostRequest('/user/loginnormal', jsonObj, true);
-    postReq.sendRequest((res) => {
+    postReq.withoutHeader((res) => {
       switch(res.data.status) {
         case '2000': {
           // wx.setStorage({

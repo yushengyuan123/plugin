@@ -54,6 +54,38 @@ class Request {
     });
   }
 
+  getReq(success) {
+    const that = this;
+    let header;
+
+    if (app.sessionID.length != 0) {
+      header = { 'x-auth-token': app.sessionID };
+    } else {
+
+    }
+    wx.request({
+      url: that.baseUrl + that.url,
+      header: header,
+      data: that.data,
+      method: that.method,
+      success: success,
+    });
+  }
+
+  withoutHeader(success, fail) {
+    const that = this;
+    wx.request({
+      url: that.baseUrl + that.url,
+      header: {
+        'content-type': 'application/json'
+      },
+      method: that.method,
+      data: that.data,
+      success: success,
+      fail: fail,
+    });
+  }
+
   sendUndata(success, fail) {
     const that = this;
     let header;
@@ -90,10 +122,9 @@ class PostRequest extends Request {
 }
 
 class GetRequest extends Request {
-  constructor(url, jsonObj = {}) {
+  constructor(url) {
     super();
     this.url = url;
-    this.data = null;
     this.method = 'get';
   }
 }
@@ -176,6 +207,10 @@ class Socket {
                     }
                     case 3: {
                       other.data.ports[i].status = '故障';
+                      break;
+                    }
+                    case 5: {
+                      other.data.ports[i].status = '断电';
                       break;
                     }
                   }

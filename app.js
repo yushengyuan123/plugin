@@ -37,10 +37,10 @@ App({
     userInfo: null
   },
   globalUrlBase: {
-    url: 'http://39.98.41.126:11111',
-    wss: 'ws://39.98.41.126:11111'
+    url: 'https://exclusive-plug.qgailab.com:11111',
+    wss: 'wss://exclusive-plug.qgailab.com:11111'
   },
-  sessionID: '32d15ba1-406d-4b1e-9e07-498ef420434f',
+  sessionID: '',
   portArr: [],
   currentPort: null,
   socket: null,

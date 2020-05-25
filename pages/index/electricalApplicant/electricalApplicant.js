@@ -341,11 +341,12 @@ Page({
         })
     },
     toPortOption() {
-        if (!!this.data.currentName
+      console.log(this.data.currentName)
+        if (!this.data.currentName
             || this.data.currentName === 'UNCONNECT'
         ) {
             wx.showToast({
-                title: '设备未进入，无法修改参数',
+                title: '设备未连接，无法修改参数',
                 icon: "none"
             })
             return
@@ -691,6 +692,58 @@ Page({
         this.setData({
             'addPort.uid': event.detail.value
         })
+    },
+
+    getPort() {
+        let
+            postReq = new infoUtil.PostRequest('/querydevice/queryindex');
+        postReq.sendRequest((res) => {
+            let isHaveDev = false;
+            console.log(res, "获得该用户所有端口")
+            switch (res.data.status) {
+                case '2000': {
+                    let portArr = res.data.data.user.indexPrivilegeMap,
+                        i;
+                    let arr = [];
+                    for (let item in portArr) {
+                        isHaveDev = true;
+                        let name = ''
+                        // name = res.data.data.device.name;
+                        arr.push({
+                            status: '未知',
+                            active: false,
+                            name: name,
+                            index: item
+                        })
+                    }
+
+                    if (isHaveDev) {
+                        setTimeout(() => {
+                            let newPorts = this.data.ports;
+                            newPorts[0].active = true;
+                            this.searchData(1);
+                            this.setData({
+                                currentPort: newPorts[0].index,
+                                currentName: newPorts[0].name,
+                                ports: newPorts
+                            })
+                            app.currentPort = newPorts[0].index;
+                        }, 1)
+                    }
+
+                    this.setData({
+                        ports: arr
+                    })
+
+                    // for (i = 0; i < portArr.length; i++) {
+                    //   this.data.ports.push(new infoUtil.Port(portArr[i]));
+                    // }
+                    break;
+                }
+            }
+        }, (error) => {
+            console.log(error)
+        });
     },
     /**
      * 获得该用户的所有端口，用get请求

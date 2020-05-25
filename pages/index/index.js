@@ -16,12 +16,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        if (!app.isVisitor) {
+        if (app.isVisitor) {
+            console.log('游客登陆login')
+            this.touristLogin()
+        } else {
             this.setData({
                 'isVisitor': false
             })
-        } else {
-          // this.touristLogin()
         }
     },
 
@@ -86,17 +87,17 @@ Page({
     },
 
     login() {
-      if (this.data.isVisitor) {
-        wx.navigateTo({
-          url: '../login/login'
-        })
-      } else {
-        app.isVisitor = true
-        this.setData({
-          'isVisitor': true
-        })
-        this.touristLogin()
-      }
+        if (this.data.isVisitor) {
+            wx.navigateTo({
+                url: '../login/login'
+            })
+        } else {
+            app.isVisitor = true
+            this.setData({
+                'isVisitor': true
+            })
+            this.touristLogin()
+        }
     },
 
     touristLogin() {
@@ -108,11 +109,11 @@ Page({
             checkCodeKey: ""
         };
         let postReq = new infoUtil.PostRequest('/user/loginnormal', jsonObj, true);
-        postReq.sendRequest((res) => {
+        postReq.withoutHeader((res) => {
             if (res.data.status == 2000) {
-              app.sessionID = res.header['x-auth-token'];
+                app.sessionID = res.header['x-auth-token'];
             } else {
-              errorMessage(res.data.status)
+                errorMessage(res.data.status)
             }
         })
     }

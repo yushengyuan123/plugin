@@ -2,6 +2,7 @@
 import * as infoUtil from "../../../../utils/infoUtil";
 import {compareDate, nowDate} from "../../../../utils/date/date";
 import {rollBack} from "../../../../utils/router";
+import {errorMessage} from "../../../../utils/errorMessage";
 
 const app = getApp();
 
@@ -16,11 +17,12 @@ Page({
         },
         display: {
             port: '',
-            time: '00:00'
+            time: '00:00',
         },
         portSelect: [],
         isAdd: null,
-        taskId: null
+        taskId: null,
+        id: ''
     },
 
     /**
@@ -35,9 +37,9 @@ Page({
             this.data.isAdd = !JSON.parse(options.isAdd)
             this.setData({
                 'power.active': options.status == 1,
-                'display.port': options.port,
+                'display.port': '端口' + options.port,
                 'display.time': options.time,
-                'taskId': options.id
+                'taskId': options.id,
             })
         }
     }
@@ -91,9 +93,11 @@ Page({
                     })
                     i++
                 }
-                this.setData({
-                    'display.port': this.data.portSelect[0]
-                })
+                if (!this.data.isAdd) {
+                    this.setData({
+                        'display.port': this.data.portSelect[0]
+                    })
+                }
             } else {
                 console.log('其他错误')
             }
@@ -115,33 +119,46 @@ Page({
 
     //submit add tasks
     changeSubmit() {
-        const reqData = {
-            "index": parseInt(this.data.display.port.
-            charAt(this.data.display.port.length - 1)), //设备串口号
-            "key": this.data.power.active?1:0, //1代表启动，0代表关闭
-        }
+        let reqData
         const hour = this.data.display.time.split(':')[0]
         const minutes = this.data.display.time.split(':')[1]
-        if (compareDate(hour, minutes)) {
-            reqData.time = nowDate(hour, minutes, 'future')
+        let postReq
+        if (!this.data.isAdd) {
+            reqData = {
+                "index": parseInt(this.data.display.port.
+                charAt(this.data.display.port.length - 1)), //设备串口号
+                "key": this.data.power.active?1:0, //1代表启动，0代表关闭
+            }
+            if (compareDate(hour, minutes)) {
+                reqData.time = nowDate(hour, minutes, 'future')
+            } else {
+                reqData.time = nowDate(hour, minutes)
+            }
+            postReq = new infoUtil.PostRequest('/actiondevice/timing', reqData);
         } else {
-            reqData.time = nowDate(hour, minutes)
+            reqData =   {
+                "timing":{
+                    "id":this.data.taskId,
+                    "index": parseInt(this.data.display.port.
+                    charAt(this.data.display.port.length - 1)),
+                    "key": this.data.power.active?1:0,
+                    "time": compareDate(hour, minutes)?
+                        nowDate(hour, minutes, 'future'):
+                        nowDate(hour, minutes)
+                }
+            }
+            postReq = new infoUtil.PostRequest('/actiondevice/updateTimingInfo', reqData);
         }
-        let postReq = new infoUtil.PostRequest('/actiondevice/timing', reqData);
         postReq.sendRequest(res => {
             if (res.data.status == 2000) {
                 wx.showToast({
-                    title: '添加成功',
+                    title: '操作成功',
                     icon: 'success',
                     duration: 2000
                 })
                 rollBack()
             } else {
-                wx.showToast({
-                    title: '添加失败,错误原因未知',
-                    duration: 2000,
-                    icon: "none"
-                })
+                errorMessage()
             }
         })
     },

@@ -1,2 +1,16 @@
 <!--pages/tips/tips.wxml-->
-<text>暂未开发</text>
+<view>
+    <view class="top-bg-con"></view>
+    <view class="bottom-con">
+        <view
+                class="electron-class {{index+1 === 1 ? 'first' : 'rest'}}"
+                wx:for="{{classList}}"
+                wx:key="index"
+                data-id="{{item.classId}}"
+                bindtap="router"
+        >
+            <image src="../../images/tip.png"></image>
+            <text>{{item.className}}</text>
+        </view>
+    </view>
+</view>

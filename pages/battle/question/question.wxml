@@ -11,14 +11,43 @@
                 <view class="inner-circle" src="../../../images/next.png"></view>
             </view>
             <view class="user-name-con">
-                第一题
+                第{{currentIndex}}题
             </view>
         </view>
         <view class="function-btn-con">
-            <view class="timu">我会唱跳rap，请问你会什么?</view>
-            <view class="topic" wx:for="{{questionList}}">
-                {{item.content}}
+            <view class="timu">{{questionList.question}}</view>
+            <view class="topic" wx:if="{{focus=='A'}}"  data-id="A">{{questionList.answerA}}</view>
+            <view class="topic {{correct=='A'?'right':'normal'}}"
+                  data-id="A"
+                  bindtap="chooseItem"
+                  wx:else
+            >
+                {{questionList.answerA}}
             </view>
+            <view class="topic {{correct=='B'?'right':'normal'}}"
+                  data-id="B"
+                  bindtap="chooseItem"
+                  wx:if="{{focus == 'B'}}"
+            >
+                {{questionList.answerB}}
+            </view>
+            <view class="topic" wx:else="" data-id="B" >{{questionList.answerB}}</view>
+            <view class="topic {{correct=='C'?'right':'normal'}}"
+                  data-id="C"
+                  bindtap="chooseItem"
+                  wx:if="{{focus == 'C'}}"
+            >
+                {{questionList.answerC}}
+            </view>
+            <view class="topic" wx:else="" data-id="C" >{{questionList.answerC}}</view>
+            <view class="topic {{correct=='D'?'right':'normal'}}"
+                  data-id="D"
+                  bindtap="chooseItem"
+                  wx:if="{{focus == 'D'}}"
+            >
+                {{questionList.answerD}}
+            </view>
+            <view class="topic" wx:else="" data-id="D" >{{questionList.answerD}}</view>
             <view class="answer">正确答案: 打篮球</view>
             <view class="answer" style="margin-top: 0">解释：因为唱跳rap，打篮球。解释解释解释。</view>
         </view>

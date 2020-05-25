@@ -24,7 +24,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    //todo 这里没告诉我有没有开关状态
+
     onLoad: function (options) {
         console.log(options)
         const add = JSON.parse(options.isAdd)
@@ -121,7 +121,13 @@ Page({
                     title: '修改成功',
                     duration: 2
                 })
-                rollBack('onReady')
+                const pages = getCurrentPages(); //当前页面
+                const beforePage = pages[pages.length - 2];
+                wx.navigateBack({
+                    success: function () {
+
+                    }
+                });
             } else {
                 errorMessage(res.status)
             }
@@ -156,6 +162,8 @@ Page({
                 wx.showToast({
                     title: '删除成功',
                 })
+                const pages = getCurrentPages(); //当前页面
+                const beforePage = pages[pages.length - 2];
                 rollBack('onReady')
             } else {
                 errorMessage(res.status)

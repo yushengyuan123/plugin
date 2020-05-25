@@ -1,19 +1,19 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/tips/lesson/content/content",
+    "pages/battle/question/question",
+    "pages/battle/battle",
+    "pages/tips/tips",
+    "pages/tips/lesson/lesson",
     "pages/index/setTime/setTime",
     "pages/index/electricalApplicant/electricalApplicant",
     "pages/index/operator/operator",
     "pages/login/login",
-    "pages/tips/tips",
     "pages/battle/finish/finish",
-    "pages/battle/battle",
-    "pages/battle/question/question",
     "pages/index/electricalApplicant/setParam/setParam",
     "pages/index/electricalApplicant/feedback/feedback",
-    "pages/index/setTime/addTask/addTask",
-    "pages/changeInfo/changeInfo",
-    "pages/option/option"
+    "pages/index/setTime/addTask/addTask"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,7 +27,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "排查控制",
+        "text": "排插控制",
         "iconPath": "images/paichakongzhi.png",
         "selectedIconPath": "images/paichai_active.png"
       },

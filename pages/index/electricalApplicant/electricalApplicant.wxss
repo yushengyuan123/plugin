@@ -157,7 +157,6 @@ cover-view {
 .info-top>text {
     display: block;
     float: left;
-    width:250rpx;
     height:40rpx;
     font-size:30rpx;
     font-family:PingFangHK-Medium;
