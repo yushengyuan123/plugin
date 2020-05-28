@@ -37,6 +37,7 @@
     font-size: 164rpx;
     margin-top: 40rpx;
     margin-bottom: 40rpx;
+    color: #7A62DC;
 }
 
 .line {
@@ -50,7 +51,7 @@
     text-align: center;
     height: 100rpx;
     width: 90%;
-    margin: 150rpx auto auto;
+    margin: 100rpx auto auto;
     background-color: #8C63FF;
     color: white;
     border-radius: 6px;

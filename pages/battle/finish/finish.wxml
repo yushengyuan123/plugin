@@ -2,11 +2,11 @@
 <view>
     <image class="bg-con" src="../../../images/finish.png"></image>
     <view class="main-con">
-        <view class="title">恭喜你完成本次答题</view>
+        <view class="title" style="color: #FF4F24">恭喜你完成本次答题</view>
         <view class="answer-correct">本次答题正确率为:</view>
-        <view class="correct-num">9/10</view>
+        <view class="correct-num"><span style="color: #FF4F24">{{correctNumber}}</span>/10</view>
         <view class="line"></view>
-        <view class="submit-btn">
+        <view class="submit-btn" bindtap="playAgain">
             <image src="../../../images/pen.png"></image>
             <text>再答一次</text>
         </view>

@@ -4,10 +4,34 @@
     background-color: #467CFF;
 }
 
+.top-bar {
+    height: 80rpx;
+    width: 100%;
+}
+
+.bar-item {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 80rpx;
+    height: 100%;
+    text-align: center;
+    width: 50%;
+}
+
+.active {
+    color: #467CFF;
+    border-bottom: 1px solid #467CFF;
+}
+
+.normal {
+    color: black;
+    border-bottom: 1px solid white;
+}
+
 .electron-class {
     height: 210rpx;
     width: 80%;
-    margin: auto;
+    margin: 30rpx auto auto;
     background-color: white;
     box-shadow:0px 2px 5px -1px rgba(0,0,0,0.5);
     border-radius:6px;

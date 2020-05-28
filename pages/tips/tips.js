@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-      classList: []
+      classList: [],
+      lesson: [],
+      focus: 1
   },
 
   /**
@@ -75,11 +77,33 @@ Page({
       })
       console.log(this.data.classList)
     })
+    const getLecture = new infoUtil.GetRequest('/knowledge/lecture?classId=1');
+    getLecture.getReq(res => {
+      this.setData({
+        'lesson': res.data.data.lectureList
+      })
+    })
   },
 
   router(event) {
     wx.navigateTo({
-      url: './lesson/lesson?id=' +event.currentTarget.dataset.id
+      url: './content/content?id=' + event.currentTarget.dataset.id
+    })
+  },
+
+  //切话顶部导航栏
+  switch(event) {
+    console.log(event.currentTarget.dataset.id)
+    this.setData({
+      'focus': event.currentTarget.dataset.id
+    })
+    const getReq = new infoUtil.GetRequest('/knowledge/lecture?classId=' + event.currentTarget.dataset.id);
+    getReq.getReq(res => {
+      console.log(res.data.data)
+      this.setData({
+        'lesson': res.data.data.lectureList
+      })
+      console.log(this.data.lesson)
     })
   }
 })

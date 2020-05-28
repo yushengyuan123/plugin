@@ -1,16 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/tips/lesson/content/content",
     "pages/battle/question/question",
-    "pages/battle/battle",
+    "pages/battle/finish/finish",
+    "pages/tips/content/content",
     "pages/tips/tips",
-    "pages/tips/lesson/lesson",
+    "pages/battle/battle",
     "pages/index/setTime/setTime",
     "pages/index/electricalApplicant/electricalApplicant",
     "pages/index/operator/operator",
     "pages/login/login",
-    "pages/battle/finish/finish",
     "pages/index/electricalApplicant/setParam/setParam",
     "pages/index/electricalApplicant/feedback/feedback",
     "pages/index/setTime/addTask/addTask"

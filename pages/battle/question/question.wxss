@@ -1,8 +1,8 @@
 /* pages/battle/question/question.wxss */
 .outer-con {
+    min-height: 100vh;
     width: 100%;
     background:linear-gradient(180deg,rgba(115,78,233,1) 0%,rgba(121,97,219,1) 68%,rgba(121,95,242,1) 100%);
-
 }
 .top-bg-con {
     height: 265rpx;
@@ -36,8 +36,10 @@
     top: -100rpx;
     left: calc(50% - 100rpx);
     border-radius: 50%;
-    background-color: aqua;
+    background-color: #975AFF;
+    color: white;
     overflow: hidden;
+    font-size: 53rpx;
 }
 
 .user-name-con {
@@ -45,8 +47,8 @@
     height: 50rpx;
     width: 100%;
     margin-top: 25rpx;
-    margin-bottom: 44rpx;
-    font-size: 41rpx;
+    margin-bottom: 30rpx;
+    font-size: 35rpx;
     text-align: center;
     color: white;
 }
@@ -86,11 +88,13 @@
 
 .topic {
     min-height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
     border-radius: 5px;
     color: #7960DC;
     text-align: center;
-    line-height: 90rpx;
     margin: 30rpx auto auto;
 }
 
@@ -136,14 +140,45 @@
     color: white;
 }
 
+.topic span {
+    display: inline-block;
+    font-size: 40rpx;
+    margin-right: 20rpx;
+    color: white;
+}
+
+
 .right {
     background-color: #57DB05;
+    color: white;
 }
 
 .wrong {
     background-color: #FC3D38;
+    color: white;
 }
 
 .normal {
     background-color: white;
+    color: #975AFF;
+}
+
+.canvasView{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.canvasView canvas {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+text{
+    position: absolute;
 }

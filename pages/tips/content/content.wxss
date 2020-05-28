@@ -1,0 +1,94 @@
+/* pages/tips/lesson/content/content.wxss */
+/* pages/tips/lesson/lesson.wxss */
+/* pages/tips/tips.wxss */
+.top-bg-con {
+    height: 100rpx;
+    background-color: #467CFF;
+}
+
+.electron-class {
+    width: 80%;
+    background-color: white;
+    box-shadow:0px 2px 5px -1px rgba(0,0,0,0.5);
+    border-radius:6px;
+    margin: -50rpx auto auto;
+}
+
+.item-con {
+    height: 130rpx;
+    padding: 30rpx 0 30rpx 0;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    border-bottom: 1px solid rgba(216,216,216,1);
+}
+
+.index-con {
+    height: 100%;
+    width: 120rpx;
+    margin-right: 20rpx;
+    border: 1px solid #467CFF;
+    line-height: 130rpx;
+    color: #467CFF;
+    text-align: center;
+}
+
+.content-con {
+    height: 100%;
+    width: calc(100% - 140rpx);
+    font-size: 30rpx;
+    overflow: scroll;
+}
+
+.global-layer {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgb(0,0,0,0.5);
+}
+
+.show-more-con {
+    position: absolute;
+    height: 50vh;
+    width: 80%;
+    left: 10%;
+    top: 20%;
+    z-index: 1000;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.number {
+    height: 70rpx;
+    line-height: 70rpx;
+    width: 80%;
+    border: 2px solid #467CFF;
+    text-align: center;
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #467CFF;
+    margin: 70rpx auto auto;
+}
+
+.cancel {
+    position: absolute;
+    right: 15rpx;
+    top: 7rpx;
+    height: 40rpx;
+    width: 40rpx;
+    color: #467CFF;
+    font-size: 48rpx;
+}
+
+.show-more-content {
+    max-height: 62%;
+    overflow: scroll;
+    width: 80%;
+    margin: 40rpx auto auto;
+}
