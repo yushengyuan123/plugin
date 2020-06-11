@@ -1,0 +1,88 @@
+<!--pages/battle/battle/online.wxml-->
+<!--pages/battle/question/question.wxml-->
+<!--pages/battle/battle.wxml-->
+<view class="outer-con">
+    <view class="user-con">
+        <view class="user-person-con">
+            <view class="user-person-name">{{my.userPhone}}</view>
+            <view class="user-person-score">{{myScore}}分</view>
+        </view>
+        <view class="user-person-head-image">
+            <image src="../../../images/battle-user.png"></image>
+        </view>
+    </view>
+
+    <view class="user-person-right-con">
+        <view class="user-person-head-image">
+            <image src="../../../images/battle-user.png"></image>
+        </view>
+        <view class="user-person-con" style="text-align: right">
+            <view class="user-person-name">{{hasOpponent!=='正在匹配对手'? opponent.userPhone :'暂无'}}</view>
+            <view class="user-person-score">{{opponentScore}}分</view>
+        </view>
+    </view>
+
+    <view class="top-bg-con">
+        {{hasOpponent}}
+    </view>
+    <view class="bottom-con">
+        <view class="head-con">
+            <view class="head-image">
+                <view type="userAvatarUrl" class="icon">
+                    <view class="canvasView">
+                        <canvas canvas-id="circleBar" style="width:100%;height:100%;"></canvas>
+                        <text>{{percent}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{hasOpponent!=='正在匹配对手'}}">
+            <view class="user-name-con">
+                第{{currentIndex+1}}题
+            </view>
+            <view class="function-btn-con" wx:if="{{showChooseList}}">
+                <view class="timu">{{questionList.question}}</view>
+                <view class="topic {{correct=='A'?'right': user!=correct&&user=='A'?'wrong':'normal'}}"
+                      data-id="A"
+                      bindtap="chooseItem"
+                >
+                    <span>{{correct=='A'?'✓': user!=correct&&user=='A'?'×':''}}</span>{{questionList.answerA}}
+                </view>
+                <view class="topic {{correct=='B'?'right':user!=correct&&user=='B'?'wrong':'normal'}}"
+                      data-id="B"
+                      bindtap="chooseItem"
+                >
+                    <span>{{correct=='B'?'✓': user!=correct&&user=='B'?'×':''}}</span>{{questionList.answerB}}
+                </view>
+                <view class="topic {{correct=='C'?'right':user!=correct&&user=='C'?'wrong':'normal'}}"
+                      data-id="C"
+                      bindtap="chooseItem"
+                >
+                    <span>{{correct=='C'?'✓': user!=correct&&user=='C'?'×':''}}</span>{{questionList.answerC}}
+                </view>
+                <view class="topic {{correct=='D'?'right':user!=correct&&user=='D'?'wrong':'normal'}}"
+                      data-id="D"
+                      bindtap="chooseItem"
+                >
+                    <span>{{correct=='D'?'✓': user!=correct&&user=='D'?'×':''}}</span>{{questionList.answerD}}
+                </view>
+            </view>
+            <view class="function-btn-con" wx:if="{{!showChooseList}}">
+                <view class="timu">{{questionList.question}}</view>
+                <view class="topic {{correct=='1'?'right': user!=correct&&user=='1'?'wrong':'normal'}}"
+                      data-id="1"
+                      bindtap="chooseItem"
+                >
+                    <span>{{correct=='1'?'✓': user!=correct&&user=='1'?'×':''}}</span>正确
+                </view>
+                <view class="topic {{correct=='0'?'right': user!=correct&&user=='0'?'wrong':'normal'}}"
+                      data-id="0"
+                      bindtap="chooseItem"
+                >
+                    <span>{{correct=='0'?'✓': user!=correct&&user=='0'?'×':''}}</span>错误
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+

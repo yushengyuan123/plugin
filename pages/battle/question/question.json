@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#734EDF",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "每日十答"
 }

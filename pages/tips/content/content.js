@@ -38,13 +38,11 @@ Page({
 
   getContent (){
     // const getReq = new infoUtil.GetRequest('/knowledge?lectureId=' + this.data.lectureId);
-    const getReq = new infoUtil.GetRequest('/knowledge?lectureId=1');
+    const getReq = new infoUtil.GetRequest('/knowledge?lectureId=' + this.data.lectureId);
     getReq.getReq(res => {
-      console.log(res.data.data)
       this.setData({
         'content': res.data.data.knowledgeList
       })
-      console.log(this.data.content)
     })
   },
 

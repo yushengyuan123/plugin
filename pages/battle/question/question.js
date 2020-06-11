@@ -19,7 +19,11 @@ Page({
         correctNum: 0,
         //10秒钟回答计时
         percent: 0,
-        interValId: null
+        interValId: null,
+        //解释弹出层
+        isShow: true,
+        //解释内容
+        content: ''
     },
 
     /**
@@ -55,21 +59,31 @@ Page({
             correctNum: 0,
             //10秒钟回答计时
             percent: 0,
-            interValId: null
+            interValId: null,
+            timeOutId: null,
+            isShow: false,
+            content: ''
         })
     },
 
     //跳转下一题目
     next() {
+        if (this.data.timeOutId) {
+            clearTimeout(this.data.timeOutId)
+            this.setData({
+                'timeOutId': null
+            })
+        }
         //判断用户有咩有选择，没有选择禁止跳转下一题
-        if (!this.data.correct) {
+        if (this.data.correct === '') {
             wx.showToast({
                 title: '请先作答本题',
                 icon: 'none'
             })
             return;
         }
-        const options = this.data.currentIndex < 6 ? 'choiceList' : 'judgeList'
+        const options = this.data.currentIndex < 5 ? 'choiceList' : 'judgeList'
+        console.log(this.data.currentIndex)
         if (this.data.currentIndex === 5) {
             this.setData({
                 'showChooseList': false
@@ -108,10 +122,11 @@ Page({
 
     //答案匹配
     matchAnswer(userAns, options) {
+        console.log(userAns)
         for (let i = 0; i < this.data.total[options].length; i++) {
             if (this.data.questionList.question ===
                 this.data.total[options][i].question) {
-                return userAns === this.data.total[options][i].answer ?
+                return userAns == this.data.total[options][i].answer ?
                     false : this.data.total[options][i].answer
             }
         }
@@ -132,11 +147,17 @@ Page({
         } else {
             rightAns = this.matchAnswer(userAns, 'judgeList')
         }
-        if (!rightAns) {
+        console.log(rightAns)
+        if (rightAns === false) {
             this.setData({
                 'correct': userAns,
                 'user': userAns,
                 'correctNum': this.data.correctNum + 1
+            })
+            this.setData({
+                'timeOutId': setTimeout(() => {
+                    this.next()
+                }, 1000)
             })
             console.log('回答正确', this.data.correctNum)
         } else {
@@ -167,12 +188,12 @@ Page({
     countdown() {
         this.setData({
             interValId: setInterval(() => {
-                if (this.data.percent < 10 && !this.data.lockItem) {
+                if (this.data.percent < 15 && !this.data.lockItem) {
                     this.setData({
                         'percent': this.data.percent + 1
                     })
                     this.drawProcessCircle()
-                } else if (!this.data.lockItem){
+                } else if (!this.data.lockItem) {
                     //到点之后自动显示答案
                     this.timeOutShowAns()
                 }
@@ -180,19 +201,44 @@ Page({
         })
     },
 
+    //显示放大的内容
+    showExplain(event) {
+        const explain = event.currentTarget.dataset.explain
+        this.setData({
+            'content': !explain ? '暂无解释' : explain,
+            'isShow': true
+        })
+    },
+
+    cancel() {
+        this.setData({
+            'isShow': false
+        })
+    },
+
+    //空事件函数进行过度
+    doNothing() {
+
+    },
+
     //绘制进度条canvas
     drawProcessCircle() {
+        const windWidth = wx.getSystemInfoSync().windowWidth;
+        const xs = windWidth / 750;
         const ctx = wx.createCanvasContext("circleBar", this)
-        const circle_radius = 100
+        const circle_radius = 200 * xs / 2;
         //圆弧的粗细
-        const lineWith = 30
+        const lineWith = 60 * xs
+        //外圆半径
+        const outR = 100 * xs
+        const innerR = 85 * xs
         //移动到圆形的中央
-        ctx.translate(circle_radius / 2, circle_radius / 2)
+        ctx.translate(circle_radius, circle_radius)
         ctx.beginPath();
         ctx.setStrokeStyle('#FFF9F1');
         ctx.setLineWidth(lineWith);
         //在刚刚移动到的地方进行圆形的绘制
-        ctx.arc(0, 0, 50, 0, Math.PI * 2, false);
+        ctx.arc(0, 0, outR, 0, Math.PI * 2, false);
         //裁剪画布使他不是正方形
         ctx.clip()
         ctx.stroke();
@@ -200,10 +246,10 @@ Page({
 
         ctx.beginPath();
         ctx.setStrokeStyle('#FFC243');
-        ctx.setLineWidth(10);
+        ctx.setLineWidth(20 * xs);
         //在刚刚移动到的地方进行圆形的绘制
-        ctx.arc(0, 0, 42, -0.5 * Math.PI,
-            (Math.PI * 2) * (this.data.percent / 10) - 0.5 * Math.PI, false);
+        ctx.arc(0, 0, innerR, -0.5 * Math.PI,
+            (Math.PI * 2) * (this.data.percent / 15) - 0.5 * Math.PI, false);
         ctx.stroke();
         ctx.closePath();
         ctx.draw()

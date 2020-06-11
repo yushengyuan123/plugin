@@ -13,7 +13,7 @@
                 </view>
             </view>
             <view class="next-qus">
-                <view class="inner-circle" src="../../../images/next.png" bindtap="next"></view>
+                <view class="inner-circle" bindtap="next"></view>
             </view>
             <view class="user-name-con">
                 第{{currentIndex+1}}题
@@ -45,7 +45,15 @@
             >
                 <span>{{correct=='D'?'✓': user!=correct&&user=='D'?'×':''}}</span>{{questionList.answerD}}
             </view>
-            <view class="answer" wx:if="{{user == 'none' || user!=correct&&user}}">正确答案: {{correct}}</view>
+<!--            <view class="answer" wx:if="{{user == 'none' || user!=correct&&user}}">正确答案: {{correct}}</view>-->
+            <view
+                    class="explain"
+                    data-explain="{{questionList.explain}}"
+                    bindtap="showExplain"
+                    wx:if="{{user == 'none' || user!=correct&&user}}"
+            >
+                解释:你好啊好好好好好好好好好啊好好好你好啊好好好好好好好好好啊好好好你好啊好好好好好好好好好啊好好好你好啊好好好好好好好好好啊好好好
+            </view>
         </view>
         <view class="function-btn-con" wx:if="{{!showChooseList}}">
             <view class="timu">{{questionList.question}}</view>
@@ -61,15 +69,26 @@
             >
                 <span>{{correct=='0'?'✓': user!=correct&&user=='0'?'×':''}}</span>错误
             </view>
-            <view class="answer" wx:if="{{user!=correct&&user}}">正确答案: {{correct==1?'正确':'错误'}}</view>
+<!--            <view class="answer" wx:if="{{user!=correct&&user && user!=correct}}">正确答案: {{correct==1?'正确':'错误'}}</view>-->
             <view class="answer" wx:if="{{questionList.explain == null}}"></view>
             <view
-                    class="answer"
-                    wx:elif="{{user == 'none' || user!=correct&&user}}"
+                    class="explain"
+                    data-explain="{{questionList.explain}}"
+                    bindtap="showExplain"
+                    wx:if="{{user == 'none' || user!=correct&&user}}"
             >
-                {{questionList.explain}}
+                解释:{{questionList.explain}}
             </view>
         </view>
+    </view>
+</view>
+
+<!--弹出框-->
+<view class="global-layer" bindtap="cancel" wx:if="{{isShow}}">
+    <view class="show-more-con" catchtap="doNothing">
+        <view class="cancel" catchtap="cancel">×</view>
+        <view class="number">答案:{{correct}}</view>
+        <view class="show-more-content">解释:{{content}}</view>
     </view>
 </view>
 

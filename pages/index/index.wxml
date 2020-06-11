@@ -4,7 +4,7 @@
     <view class="bottom-con">
         <view class="head-con">
             <view class="head-image" bindtap="login">
-                <image class="icon" wx:if="{{isVisitor}}" src="../../images/tourist.png"
+                <image class="icon" wx:if="{{isVisitor}}" src="../../images/battle-user.png"
                        bindtap="login"
                 ></image>
                 <open-data type="userAvatarUrl" class="icon" wx:else></open-data>

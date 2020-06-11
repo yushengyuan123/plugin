@@ -1,4 +1,5 @@
 // pages/battle/battle.js
+const app = getApp()
 Page({
 
   /**
@@ -74,6 +75,15 @@ Page({
 
   jump(event) {
     const module = event.currentTarget.dataset.id
+    if (module === 'pk') {
+      if (app.isVisitor) {
+        wx.showToast({
+          title: '请登录后再进行pk',
+          icon: "none"
+        })
+        return
+      }
+    }
     wx.navigateTo({
       url:'./' + module + '/' + module,
     })

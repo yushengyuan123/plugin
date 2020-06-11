@@ -1,11 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/battle/question/question",
+    "pages/index/index",
+    "pages/battle/pk/pk",
+    "pages/battle/pk/pkResult/pkResult",
+    "pages/battle/battle",
     "pages/battle/finish/finish",
     "pages/tips/content/content",
     "pages/tips/tips",
-    "pages/battle/battle",
     "pages/index/setTime/setTime",
     "pages/index/electricalApplicant/electricalApplicant",
     "pages/index/operator/operator",

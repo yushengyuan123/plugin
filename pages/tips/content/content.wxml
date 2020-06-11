@@ -15,7 +15,7 @@
         </view>
     </view>
     <!--弹出框-->
-    <view class="global-layer" wx:if="{{isShow}}"bindtap="cancel">
+    <view class="global-layer" wx:if="{{isShow}}" bindtap="cancel">
         <view class="show-more-con" catchtap="doNothing">
             <view class="cancel" catchtap="cancel">×</view>
             <view class="number">NO.{{show.knowledgeId}}</view>

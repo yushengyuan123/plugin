@@ -1,0 +1,73 @@
+<!--pages/battle/pk/pkResult/pkResult.wxml-->
+<view>
+    <image class="bg-con" src="../../../../images/online_finish.png"></image>
+    <view wx:if="{{isShow}}" class="user-score-container">
+        <image src="../../../../images/win.png" class="win-image"></image>
+        <view class="user-score-content">
+            <view class="head-con">
+                <image src="../../../../images/battle-user.png" class="head-icon"></image>
+            </view>
+            <view class="user-info">
+                <view class="score">{{my.userPhone}}</view>
+                <view class="score">110分</view>
+            </view>
+        </view>
+        <view class="line"></view>
+        <view class="user-score-content">
+            <view class="head-con">
+                <image src="../../../../images/battle-user.png" class="head-icon"></image>
+            </view>
+            <view class="user-info">
+                <view class="score">{{opponent.userPhone}}</view>
+                <view class="score">110分</view>
+            </view>
+        </view>
+    </view>
+    <view class="main-con" wx:if="{{!isShow}}">
+        <view class="title" style="color: #FF4F24">恭喜你完成本次答题</view>
+        <view class="answer-correct">您的正确率为:</view>
+        <view class="correct-num"><span style="color: #FF4F24;font-weight: bold">{{number}}</span>/10</view>
+        <view class="result-con">
+            <view class="result-title">{{index ? '对手作答情况' : '您的作答情况'}}</view>
+            <view class="result-detail-con" >
+                <view
+                        class="result-detail"
+                        style="left: {{leftValue}}px"
+                >
+                    <view class="slip-con"
+                          capture-catch:touchstart="touchStart"
+                          capture-catch:touchend="touchEnd"
+                    >
+                        <view class="result-num" wx:for="{{myList}}" wx:key="{{index}}">
+                            <text>{{index+1}}</text>
+                            <image
+                                    class="right-wrong-image"
+                                    src="{{item.result ? '../../../../images/wrong.png' : '../../../../images/correct.png'}}"
+                            ></image>
+                        </view>
+                    </view>
+                    <view class="slip-con"
+                          capture-catch:touchstart="touchStart"
+                          capture-catch:touchend="touchEnd"
+                    >
+                        <view class="result-num" wx:for="{{opponentList}}" wx:key="{{index}}">
+                            <text>{{index+1}}</text>
+                            <image
+                                    class="right-wrong-image"
+                                    src="{{item.result ? '../../../../images/wrong.png' : '../../../../images/correct.png'}}"
+                            ></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="result-btn">
+                <view class='btn {{index==0?"active":"normal"}}'></view>
+                <view class='btn {{index==1?"active":"normal"}}'></view>
+            </view>
+        </view>
+        <view class="submit-btn" bindtap="playAgain">
+            <text>返回pk界面</text>
+        </view>
+    </view>
+</view>
+
