@@ -351,16 +351,16 @@ Page({
         })
         return ;
       }
-      case data.idenCode.length: {
-        wx.showModal({
-          content: '请输入验证码',
-          showCancel: false
-        })
-        return ;
-      }
+      // case data.idenCode.length: {
+      //   wx.showModal({
+      //     content: '请输入验证码',
+      //     showCancel: false
+      //   })
+      //   return ;
+      // }
     }
     jsonObj = {
-      checkCodeKey: data.idenCode,
+      // checkCodeKey: data.idenCode,
       user: {
         userPhone: data.account,
         userPassword: data.password

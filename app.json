@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/battle/question/question",
     "pages/index/index",
-    "pages/battle/pk/pk",
+    "pages/battle/question/question",
     "pages/battle/pk/pkResult/pkResult",
+    "pages/battle/pk/pk",
     "pages/battle/battle",
     "pages/battle/finish/finish",
     "pages/tips/content/content",

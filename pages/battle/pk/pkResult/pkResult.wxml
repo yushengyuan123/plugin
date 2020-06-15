@@ -9,7 +9,7 @@
             </view>
             <view class="user-info">
                 <view class="score">{{my.userPhone}}</view>
-                <view class="score">110分</view>
+                <view class="score">{{myScore}}分</view>
             </view>
         </view>
         <view class="line"></view>
@@ -19,7 +19,7 @@
             </view>
             <view class="user-info">
                 <view class="score">{{opponent.userPhone}}</view>
-                <view class="score">110分</view>
+                <view class="score">{{opponentScore}}分</view>
             </view>
         </view>
     </view>
