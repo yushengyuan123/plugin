@@ -68,13 +68,13 @@
                          bindinput='setFromData'></input></view>
             <view>
                 <view>
-                    <view><input placeholder="密码" data-name="password" password='true' maxlength='18' data-mode='3'
+                    <view><input placeholder="密码由6-16位英文数字结合" data-name="password" password='true' maxlength='18' data-mode='3'
                                  bindinput='setFromData'></input></view>
                 </view>
-<!--              <view>-->
-<!--                <view><input placeholder="确认密码" data-name="confirMpassword" password='true' maxlength='18' data-mode='3'-->
-<!--                             bindinput='setFromData'></input></view>-->
-<!--              </view>-->
+              <view>
+                <view><input placeholder="确认密码" data-name="confirmPassword" password='true' maxlength='18' data-mode='3'
+                             bindinput='setFromData'></input></view>
+              </view>
 <!--                <view class="iden-container"><input class="iden-input" data-mode='3' type='number' placeholder="验证码"-->
 <!--                                                    data-name="code" bindinput='setFromData'></input>-->
 <!--                    <text class="iden-line"></text>-->

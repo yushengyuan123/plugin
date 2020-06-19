@@ -27,6 +27,7 @@ Page({
       account: '',
       password: '',
       idenCode: '',
+      confirmPassword: '',
       codeMes: '获取验证码'
     }
   },
@@ -175,6 +176,11 @@ Page({
             })
             break;
           }
+          case 'confirmPassword': {
+            this.setData({
+              'regist.confirmPassword': value
+            })
+          }
         }
         break;
       }
@@ -272,7 +278,7 @@ Page({
         userPhone: data.account,
         userPassword: data.password
       },
-      checkCodeKey: data.idenCode
+      // checkCodeKey: data.idenCode
     }
     postReq = new infoUtil.PostRequest('/user/loginnormal', jsonObj, true);
     postReq.withoutHeader((res) => {
@@ -336,6 +342,7 @@ Page({
     let data = this.data.regist,
         jsonObj,
         postReq;
+    console.log(data.confirmPassword)
     switch(0) {
       case data.account.length: {
         wx.showModal({
@@ -351,13 +358,13 @@ Page({
         })
         return ;
       }
-      // case data.idenCode.length: {
-      //   wx.showModal({
-      //     content: '请输入验证码',
-      //     showCancel: false
-      //   })
-      //   return ;
-      // }
+    }
+    if (data.confirmPassword !== data.password) {
+      wx.showModal({
+        content: '两次密码输入不一致',
+        showCancel: false
+      })
+      return ;
     }
     jsonObj = {
       // checkCodeKey: data.idenCode,
@@ -374,8 +381,10 @@ Page({
             title: '注册成功',
           });
           this.setData({
-            login: true,
-            regist: false
+            mode: {
+              login: true,
+              regist: false
+            },
           })
           break;
         }
@@ -389,6 +398,13 @@ Page({
         case 4024: {
           wx.showModal({
             content: '验证码过时',
+            showCancel: false,
+          })
+          break;
+        }
+        case '4001': {
+          wx.showModal({
+            content: '密码由6-16位英文数字结合',
             showCancel: false,
           })
           break;
@@ -532,7 +548,7 @@ Page({
         userPhone: "13570200438",
         userPassword: "11111111"
       },
-      checkCodeKey: ""
+      // checkCodeKey: ""
     };
     let postReq = new infoUtil.PostRequest('/user/loginnormal', jsonObj, true);
     postReq.sendRequest((res) => {

@@ -106,7 +106,7 @@ Page({
                 userPhone: "13570200438",
                 userPassword: "11111111"
             },
-            checkCodeKey: ""
+            // checkCodeKey: ""
         };
         let postReq = new infoUtil.PostRequest('/user/loginnormal', jsonObj, true);
         postReq.withoutHeader((res) => {
